@@ -1,0 +1,110 @@
+<div class="parent" 
+    fxLayout="row"
+    fxLayoutGap="10px">
+
+
+  <div class="childreen books-list"
+  >
+  <mat-list role="list" >
+    <mat-nav-list>
+        <mat-list-item matLine [routerLink]="['/']"
+                  [routerLinkActive]="['active-class']"
+                  [routerLinkActiveOptions]="{exact: true}">
+                  <a> Top </a>
+                 </mat-list-item>
+
+      <mat-list-item *ngFor="let category of categories" 
+                     [routerLink]="['/']"
+                     [queryParams]="{'category': category}"
+                     routerLinkActive="active-class">
+        <a>{{ category }}</a>
+      </mat-list-item>
+      
+      <!-- <mat-list-item *ngFor="let category of categories" 
+                     [routerLink]="['/category',category]"
+                     [queryParams]="{'category': category}"
+                     routerLinkActive="active-class">
+        <a>{{ category }}</a>
+      </mat-list-item> -->
+    </mat-nav-list>
+  </mat-list>
+  <hr>
+
+  <!-- <mat-list role="list" >
+    <mat-nav-list>
+      <mat-list-item>
+        <a matLine (click)="showBooksByCategory(null)"> Top Books</a>
+
+      </mat-list-item>
+      <mat-list-item *ngFor="let category of categories"  >
+         <a matLine (click)="showBooksByCategory(category)">{{ category }}</a>
+         <button mat-icon-button  
+                 (click)="showBooksByCategory(category)"   >
+            <mat-icon>info</mat-icon>
+         </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-list> -->
+  
+    <!-- <ul class="list-group">
+      <li class="list-group-item active">Books categories</li>
+
+      <button
+        class="list-group-item categories-item"
+        (click)="showBooksByCategory(null)"
+      >
+        Top Books
+      </button>
+
+      <button
+        class="list-group-item categories-item"
+        *ngFor="let category of categories"
+        (click)="showBooksByCategory(category)"
+      >
+        {{ category }}
+      </button>
+    </ul> -->
+  </div>
+
+  <div class="childreen books-details">
+    <app-books-list-details
+      [books]="books"
+      [selectedCategory]="selectedCategory"
+    >
+    </app-books-list-details>
+  </div>
+</div>
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <br />
+
+      <ul class="list-group">
+        <li class="list-group-item active">Books categories</li>
+
+        <button
+          class="list-group-item categories-item"
+          (click)="showBooksByCategory(null)"
+        >
+          Top Books
+        </button>
+
+        <button
+          class="list-group-item categories-item"
+          *ngFor="let category of categories"
+          (click)="showBooksByCategory(category)"
+        >
+          {{ category }}
+        </button>
+      </ul>
+    </div>
+
+    <div class="col-md-9">
+      <app-books-list-details
+        [books]="books"
+        [selectedCategory]="selectedCategory"
+      ></app-books-list-details>
+    </div>
+  </div>
+  <br />
+</div> -->

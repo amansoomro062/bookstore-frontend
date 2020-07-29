@@ -1,0 +1,12 @@
+
+<!-- fxLayout="column inline" =  display:inline-flex; flex-direction: column; -->
+<!-- <div class="parent" fxLayout="column inline"> -->
+
+ <div class="parent" fxLayout="column">
+<div class="childreen"> 
+    <app-checkout-details [item]="booksCart"></app-checkout-details>
+  </div>
+  <div class="childreen">
+    <app-checkout-form [item]="booksCart">></app-checkout-form>
+  </div>
+</div>

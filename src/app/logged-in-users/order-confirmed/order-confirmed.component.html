@@ -1,0 +1,15 @@
+<div fxLayout="column">
+
+<h1 mat-dialog-title>Order Confirmed!</h1>
+<div mat-dialog-content>
+  <p>Congratulation your order has been placed!</p>
+  <h3 style="color:tomato">order id {{orderDataa.id}}</h3>
+  
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="closeDialog()">Okay</button>
+    <button mat-raised-button
+          (click)="viewOrders()">View Orders</button>
+</div>
+
+</div>

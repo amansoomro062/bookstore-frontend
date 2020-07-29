@@ -1,0 +1,80 @@
+<br>
+<div
+  class="parent"
+  fxLayout="row"
+  fxLayoutAlign="center center"
+>
+<mat-card
+ *ngIf="book"
+ [ngStyle.lg]="{ width: '330px' }"
+ [ngStyle.sm]="{ width: '220px' }"
+ [ngStyle.xs]="{ width: '200px' }"
+ [ngStyle]="{ width: '270px' }"
+>
+ <mat-card-header>
+   <mat-card-title>
+     <h5>
+         {{ book.name | titlecase }}       
+     </h5>
+   </mat-card-title>
+   <mat-card-subtitle> {{ book.name }} </mat-card-subtitle>
+ </mat-card-header>
+ <img mat-card-image src="{{ book.img_Source }}" />
+ <mat-card-content class="card-body">
+   <h5>
+     <a routerLink="/bookdetails/{{ book.id }}">
+       {{ book.name | titlecase }}
+     </a>
+   </h5>
+   <h6>{{ book.price | currency }}</h6>
+   <h6>{{ book.author_Name }}</h6>
+   <p>{{ book.description}} </p>
+
+   <button
+     mat-raised-button
+     color="primary"
+     [ngStyle]="{ width: '100%' }"
+     [disabled]="isItemInCart(book.id)"
+     matTooltip="Add Item in Cart"
+     (click)="addToCart(book)"
+   >
+     {{ isItemInCart(book.id) ? "Item In cart" : "Add To Cart" }}
+   </button>
+   
+ </mat-card-content>
+ <mat-card-actions>
+
+ </mat-card-actions>
+</mat-card>
+
+</div>
+<br>
+<!-- <div class="container" *ngIf='book'>
+    id : {{book.id}} <br>
+    name  : {{book.name}} <br>
+    <div>
+     <img  src="{{book.img_Source}}" width="300px;"   class="img-thumbnail">
+   </div>
+   <hr>
+  
+  <div class="book-description" *ngIf='book.description'>
+   Description
+   <h6>
+     {{book.description}}
+   </h6>
+  </div>
+  
+          <button
+          (click)="addToCart(book)"
+          [ngClass]="{
+            btn: true,
+            'btn-outline-danger': isItemInCart(book.id),
+            'btn-outline-primary': !isItemInCart(book.id)
+          }"
+          [disabled]="isItemInCart(book.id)"
+        >
+          {{ isItemInCart(book.id) ? "Item In cart" : "Add To Cart" }}
+        </button>
+
+<br>
+</div> -->

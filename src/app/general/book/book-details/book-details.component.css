@@ -1,0 +1,17 @@
+.container{
+   border-left:1px solid lightblue;
+   margin-top:5px;
+   
+}
+h6{
+    color: saddlebrown;
+}
+mat-card{
+    /* padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 10px; */
+    border:1px solid gainsboro;
+
+    padding: 25px;
+
+}

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="form-container">
+        <h3>Please sign up here</h3>
+       <div class="example-container">
+     
+        <mat-form-field>
+            <input matInput  placeholder="First Name" 
+                  [(ngModel)]='firstname' name="firstname">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput  placeholder="Email" 
+                [(ngModel)]='username' name="username">
+        </mat-form-field>
+      
+        <mat-form-field>
+            <input matInput  placeholder="password" type="password"
+                    [(ngModel)]='password' name="password">
+          </mat-form-field>
+
+          <div>
+                <button mat-flat-button color='primary' (click)='createUser()'>
+                    Create New Account
+                </button>
+                <button mat-flat-button color='warn' routerLink="/login" >
+                        login
+                    </button>
+                </div>
+
+         </div>
+        </div>  
+      
+</div>

@@ -1,0 +1,51 @@
+mat-card{
+    max-width: 97%;
+  }
+    mat-card-title{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    mat-card-subtitle{
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+  
+    p{
+        
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgb(2, 0, 8);
+        font-size: 1.4em;
+        margin-left: 20px;
+      }
+    
+    table {
+      width: 100%;
+    }
+  
+  .main-container {
+      border:1px solid gainsboro;
+      padding: 10px; 
+   margin-left: 10px;
+    margin-right: 10px;
+    max-height: 510px; 
+     min-width: 300px;
+    border: 1px solid gainsboro;
+  
+    }
+    tr.mat-footer-row {
+      font-weight: bold;
+    }
+  #title{
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  #title:hover{
+    letter-spacing: 3px;
+    color: firebrick;
+  }
+  
+  img{
+  border-radius: 10%;
+  width: 50px;
+  }
+  

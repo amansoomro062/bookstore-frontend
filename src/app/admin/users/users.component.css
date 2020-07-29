@@ -1,0 +1,89 @@
+.parent {
+  /* display: flex;
+  flex-direction: column; */
+ 
+  margin-left: 10px;
+  margin-right: 10px;
+  max-height: 510px;
+  min-width: 300px;
+  border: 1px solid gainsboro;
+}
+
+button{
+  margin-left: 20px;
+}
+#title{
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#title:hover{
+  letter-spacing: 3px;
+  color: firebrick;
+}
+.mat-table {
+  overflow: auto;
+  max-height: 510px;
+}
+
+/* .mobile-label {
+  display: none;
+} */
+
+/* Responsive Classess */
+.responsive-mat-col-header{
+  font-size: 14px;
+  width: 100%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: inline-block;
+  font-weight: bold;
+}
+.responsive-mat-row{
+    padding: 8px 24px;
+    border: 2px solid gainsboro;
+    margin: 10px;
+}
+.responsive-mat-cell{
+  display: block;
+}
+
+
+
+
+
+
+/* .example-container {
+  display: flex;
+  flex-direction: column;
+ 
+  margin-left: 10px;
+  margin-right: 10px;
+
+  max-height: 510px;
+  min-width: 300px;
+  border: 1px solid gainsboro;
+} */
+
+/* table {
+    width: 100%;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+   #main-container{ 
+    width:93%;
+  } 
+  .managechanges{
+        margin-left:15px;
+}
+.parent{
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+smallsize{
+  font-size: 10px;
+} */

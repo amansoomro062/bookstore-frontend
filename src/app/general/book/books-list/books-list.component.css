@@ -1,0 +1,23 @@
+
+.books-details{
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+.books-list{
+    flex: 0 1 25%;
+    margin-left: 5px;
+}
+.active-class{
+    letter-spacing: 4px;
+    border-left: 3px solid orange ;
+    color: burlywood;
+}
+.categories-item{
+    color: royalblue;
+    text-align: left;
+}
+.categories-item:hover{
+background: lavender;
+}
+

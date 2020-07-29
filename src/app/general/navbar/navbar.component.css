@@ -1,0 +1,55 @@
+
+
+    mat-sidenav-container{
+        height: 100%;
+    }
+    
+    mat-sidenav, mat-sidenav-conent{
+        padding:16px;
+    }
+    mat-sidenav{
+        /* background : floralwhite; */
+        /* background : darksalmon; */
+        background : lightcoral;
+        /* width:30%; */
+         width:200px; 
+    }
+    
+    .menu-bar{
+        float: right;
+    }
+    .menu-bar-login{
+        float: right;
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+    .home-icon{
+        float: right;
+    }
+    .title{
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+        font-size: 17px;
+    }
+    
+    .cart-button{
+        margin-top:10px;
+        padding-right:10px;
+        margin-right:40px;
+        clear: both;
+    }
+    
+    .cart-icon{
+    font-size:30px;
+    }
+
+/* uncomment this */
+/* a{
+    margin-left:10px;
+}
+
+mat-icon{
+    font-size: 30px;
+    margin-top: 8px;
+} */

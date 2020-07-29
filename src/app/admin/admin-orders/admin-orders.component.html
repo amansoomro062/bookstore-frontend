@@ -1,0 +1,135 @@
+<h3 id="title">Admin Manage Your Orders</h3>
+
+<div
+  *ngFor="let orderOrderDetail of orderOrderDetails; let i = index"
+  fxLayout="column"
+  class="parent"
+  fxLayoutGap="10px"
+  style="margin: 15px; border: 1px solid cadetblue;"
+>
+  <div class="childreen">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Order Summary</mat-card-title>
+        <mat-card-subtitle>Order id {{ orderOrderDetail.order.id }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <hr />
+        <p>First Name: {{ orderOrderDetail.order.firstName }}</p>
+        <p>Last Name: {{ orderOrderDetail.order.lastName }}</p>
+        <p>Email: {{ orderOrderDetail.order.email }}</p>
+        <p>Order Date: {{ orderOrderDetail.order.orderDate | date }}</p>
+
+
+        <p>
+        <mat-form-field>
+            <mat-label>Order Status</mat-label>
+            <mat-select [(value)]="orderOrderDetail.order.status">
+              <mat-option
+              *ngFor="let order of orderStatus"
+              [value]="order"
+              >
+              {{order|uppercase}}
+            </mat-option>
+            </mat-select>
+         </mat-form-field>
+        </p>
+
+          <!-- <p>You selected: {{orderOrderDetail.order.status}}</p>       -->
+
+
+        <p>Recieve Date: {{ orderOrderDetail.order.recieveDate|date }}</p>
+        <p>
+          Shipping Address:
+          <br />
+          {{ orderOrderDetail.order.shippingAddress }}
+        </p>
+
+        <p>Totle Price: {{ orderOrderDetail.order.totlePrice | currency }}</p>
+
+        <div class="main-container childreen">
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Order Items
+                </mat-panel-title>
+
+                <mat-panel-description>
+                  Expand To See Your Orders
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <table
+                mat-table
+                [dataSource]="orderOrderDetail.orderDetailsList"
+                class="mat-elevation-z8"
+              >
+                <ng-container matColumnDef="item">
+                  <th mat-header-cell *matHeaderCellDef>Item.</th>
+                  <td mat-cell *matCellDef="let element">
+
+                    <a routerLink="/bookdetails/{{element.bookid}}">{{ element.item }}</a>
+
+                    <img [fxHide.xs]="true" style="margin-left:10px;" src="{{ element.img_src }}" />
+                  </td>
+                  <td mat-footer-cell *matFooterCellDef>Total</td>
+                </ng-container>
+
+                <ng-container matColumnDef="cost">
+                  <th mat-header-cell *matHeaderCellDef>Cost.</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.cost | currency }}
+                  </td>
+                  <td mat-footer-cell *matFooterCellDef>{{ 32 }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="quantity">
+                  <th mat-header-cell *matHeaderCellDef>Quantity.</th>
+                  <!-- [disabled]="!qtyUpdatable" -->
+
+                  <td mat-cell *matCellDef="let element; let i = index">
+                    <input
+                      type="number"
+                      min="1"
+                      max="10"
+                      [value]="element.quantity"
+                      #qty
+                    />
+                  </td>
+                  <!-- <td mat-footer-cell *matFooterCellDef>{{ totle_quantity }}</td> -->
+                  <td mat-footer-cell *matFooterCellDef>888</td>
+                </ng-container>
+
+                <ng-container matColumnDef="totle_cost">
+                  <th mat-header-cell *matHeaderCellDef>Totle Cost</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.totle_cost | currency }}
+                  </td>
+                  <td mat-footer-cell *matFooterCellDef>jjii</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+                <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+              </table>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </mat-card-content>
+      <hr />
+      <mat-card-actions>
+        <button mat-raised-button (click)="updateOrder(i,orderOrderDetail.order)" color="primary">Update Order</button>
+        <!-- <button mat-raised-button color="accent">Cancel Order</button> -->
+      </mat-card-actions>
+    </mat-card>
+    <br />
+  </div>
+
+  <br />
+</div>
+
+<br />

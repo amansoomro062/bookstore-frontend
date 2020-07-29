@@ -1,0 +1,145 @@
+<br />
+<br />
+
+<div class="container">
+<form #addBookForm="ngForm">
+  <div class="form-container">
+    <div class="example-container">
+      <h3>
+        {{editMode? 'Update': 'Add'}}
+        your book here</h3>
+      
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Input"
+          placeholder="Book id"
+          [(ngModel)]="book.id"
+          name="id"
+          #id="ngModel"
+          required
+          disabled
+        />
+        <mat-error *ngIf="id.errors?.required">
+          id is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Input"
+          placeholder="Book name"
+          [(ngModel)]="book.name"
+          name="name"
+          #name="ngModel"
+          required
+        />
+        <mat-error *ngIf="name.errors?.required">
+          name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Input"
+          placeholder="Author Name"
+          [(ngModel)]="book.author_Name"
+          name="author_Name"
+          #author_Name="ngModel"
+          required
+        />
+        <mat-error *ngIf="author_Name.errors?.required">
+          Author name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Input"
+          placeholder="Price"
+          [(ngModel)]="book.price"
+          name="price"
+          #price="ngModel"
+          required
+        />
+        <mat-error *ngIf="price.errors?.required">
+          price name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Input"
+          placeholder="Category"
+          [(ngModel)]="book.category"
+          name="category"
+          #category="ngModel"
+          required
+        />
+        <mat-error *ngIf="category.errors?.required">
+          Category name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Input"
+          placeholder="Image source"
+          [(ngModel)]="book.img_Source"
+          name="img_Source"
+          #img_Source="ngModel"
+          required
+        />
+        <mat-error *ngIf="img_Source.errors?.required">
+          Image source is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Input"
+          placeholder="Description"
+          [(ngModel)]="book.description"
+          name="description"
+          #description="ngModel"
+          required
+        />
+        <mat-error *ngIf="description.errors?.required">
+          Description is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-spinner *ngIf="showSpinner"></mat-spinner>
+
+      <div class="row">
+        <div class="col-md-2">
+          <button mat-raised-button color='accent'
+          type="button"
+          routerLink="/admin/products"
+          matTooltip="View Producs">
+            Products
+          </button>     
+        </div>
+
+        <div class="col-md-10">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="addBook()"
+            [matTooltip]="'Save'"
+            [disabled]="!addBookForm.form.valid || !addBookForm.form.dirty"
+          >
+            {{editMode? 'Update': 'Save'}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>

@@ -1,0 +1,60 @@
+/* .parent{
+     display: flex;
+     flex-direction: row;
+     flex-wrap:  wrap;
+     justify-content: space-between;
+}
+.card-body{
+    flex-grow: 1;
+} */
+
+
+/* #books-detail-container{
+    margin-top: -20px;
+} */
+.example-card {
+    max-width: 400px;
+  }
+.book-
+  .parent{
+    border:1px solid gainsboro;
+}  
+
+
+mat-card{
+   
+    border:1px solid gainsboro;
+    margin-bottom: 10px;
+}
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  
+
+.categories-detail-title{
+ font-size: 20px;
+}
+.hideElement{
+    display: none;
+}
+.image-container{
+display: inline-block;    
+}
+
+h6{
+    color:darkcyan;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+/* #detail-container{
+    border-left:1px solid lightgrey;
+    padding-left:7px;
+}
+ */
+
+/* .list-group{
+    margin-top: 15px;
+} */

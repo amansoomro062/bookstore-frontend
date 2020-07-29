@@ -1,0 +1,179 @@
+<br>
+
+<div
+  class="parent"
+  fxLayout="row wrap"
+  fxLayoutAlign.xs="center"
+  fxLayoutAlign="space-between"
+>
+  <mat-card
+    *ngFor="let book of books"
+    class="childreen"
+    [ngStyle.lg]="{ width: '330px' }"
+    [ngStyle.sm]="{ width: '220px' }"
+    [ngStyle.xs]="{ width: '200px' }"
+    [ngStyle]="{ width: '270px' }"
+  >
+    <mat-card-header>
+      <mat-card-title>
+        <h5>
+          <a routerLink="/bookdetails/{{ book.id }}">
+            {{ book.name | titlecase }}
+          </a>
+        </h5>
+      </mat-card-title>
+      <mat-card-subtitle> {{ book.name }} </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{ book.img_Source }}" />
+    <mat-card-content class="card-body">
+      <h5>
+        <a routerLink="/bookdetails/{{ book.id }}">
+          {{ book.name | titlecase }}
+        </a>
+      </h5>
+      <h6>{{ book.price | currency }}</h6>
+      <h6>{{ book.author_Name }}</h6>
+      <button
+        mat-raised-button
+        color="primary"
+        [ngStyle]="{ width: '100%' }"
+        [disabled]="isItemInCart(book.id)"
+        matTooltip="Add Item in Cart"
+        (click)="addToCart(book)"
+      >
+        {{ isItemInCart(book.id) ? "Item In cart" : "Add To Cart" }}
+      </button>
+      <!-- <button
+        (click)="addToCart(book)"
+        [ngClass]="{
+          btn: true,
+          'btn-outline-danger': isItemInCart(book.id),
+          'btn-outline-primary': !isItemInCart(book.id)
+        }"
+        [disabled]="isItemInCart(book.id)"
+      >
+        {{ isItemInCart(book.id) ? "Item In cart" : "Add To Cart" }}
+      </button> -->
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button
+        mat-raised-button
+        color="primary"
+        [ngStyle]="{ 'width' : '100%'}"
+        [disabled]="isItemInCart(book.id)"
+        matTooltip="Add Item in Cart" 
+        (click)="addToCart(book)"
+      >
+        Cart
+      </button> -->
+    </mat-card-actions>
+  </mat-card>
+  
+
+</div>
+
+<!-- 
+<div class="parent" fxLayout="row wrap" 
+                    fxLayoutAlign.lt-md="center"
+                    fxLayoutAlign="space-between"
+                    >   
+ <mat-card *ngFor="let book of books" 
+           class="childreen" 
+           [ngStyle.lt-lg]="{'width':'280px'}"
+           [ngStyle.lg]="{'width':'350px'}"
+           >
+    <mat-card-header>
+      <mat-card-title> {{book.name}} </mat-card-title>
+      <mat-card-subtitle> {{book.name}} </mat-card-subtitle>
+    </mat-card-header>
+    <img  mat-card-image 
+          src="{{book.img_Source}}"
+          >
+    <mat-card-content class="card-body">
+      <p>
+        {{book.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Cart</button>
+    </mat-card-actions>
+  </mat-card> 
+</div> -->
+
+<!-- 
+    <div class="row">
+    <div class="col-md-6">
+    <ul class="list-group">
+      <li
+        style="list-style: none;"
+        *ngFor="let book of books; let odd = odd"
+        [ngClass]="{ hideElement: odd }"
+      >
+        <div class="card" style="width: 18em;">
+
+          <img src="{{ book.img_Source }}" class="card-img-top" />
+          <div class="card-body">
+            <h5>
+              <a routerLink="/bookdetails/{{ book.id }}">
+                {{ book.name | titlecase }}
+              </a>
+            </h5>
+
+            <h6 class="card-title">{{ book.price | currency }}</h6>
+            <h6>{{ book.author_Name }}</h6>
+            <button
+              (click)="addToCart(book)"
+              [ngClass]="{
+                btn: true,
+                'btn-outline-danger': isItemInCart(book.id),
+                'btn-outline-primary': !isItemInCart(book.id)
+              }"
+              [disabled]="isItemInCart(book.id)"
+            >
+              {{ isItemInCart(book.id) ? "Item In cart" : "Add To Cart" }}
+            </button>
+          </div>
+        </div>
+        <br />
+      </li>
+    </ul>
+  </div> 
+
+ <div class="col-md-6">
+    <ul class="list-group">
+      <li
+        style="list-style: none;"
+        *ngFor="let book of books; let even = even"
+        [ngClass]="{ hideElement: even }"
+      >
+        <div class="card" style="width: 18em;">
+          <img src="{{ book.img_Source }}" class="card-img-top" />
+          <div class="card-body">
+            <h5>
+              <a routerLink="/bookdetails/{{ book.id }}">
+                {{ book.name | titlecase }}
+              </a>
+            </h5>
+
+            <h6 class="card-title">{{ book.price | currency }}</h6>
+            <h6>{{ book.author_Name }}</h6>
+
+            <button
+              (click)="addToCart(book)"
+              [ngClass]="{
+                btn: true,
+                'btn-outline-danger': isItemInCart(book.id),
+                'btn-outline-primary': !isItemInCart(book.id)
+              }"
+              [disabled]="isItemInCart(book.id)"
+            >
+              {{ isItemInCart(book.id) ? "Item In cart" : "Add To Cart" }}
+            </button>
+          </div>
+        </div>
+
+        <br />
+      </li>
+    </ul>
+  </div>
+</div>  -->

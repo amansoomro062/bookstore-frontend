@@ -1,0 +1,131 @@
+<br>
+
+<h3 id="title"> Manage Products</h3>
+
+  <button mat-flat-button
+          color="primary" 
+          [matTooltip]="'Add New Book'"
+          routerLink="../addbook">
+    Add Products
+  </button>
+
+
+  <hr />
+  
+ <div class="parent mat-elevation-z8" fxLayout="column">
+  <mat-form-field>
+    <input
+      matInput
+      (keyup)="applyFilter($event.target.value)"
+      placeholder="Filter"
+    />
+  </mat-form-field>
+
+
+    <mat-table #table [dataSource]="dataSource" matSort >
+
+  <ng-container matColumnDef="id">
+      <mat-header-cell  *matHeaderCellDef mat-sort-header  >  ID </mat-header-cell>
+      <mat-cell [ngClass.xs]="{'responsive-mat-cell': true}" *matCellDef="let element">
+        <span *ngIf="isMobileActive"  class="responsive-mat-col-header">Position Id:</span>
+        {{ element.id }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> TITLE </mat-header-cell>
+      <mat-cell [ngClass.xs]="{'responsive-mat-cell': true}" *matCellDef="let element">
+       
+        <span *ngIf="isMobileActive"    class="responsive-mat-col-header">TITLE:</span>
+
+   {{element.name}}
+
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="author_Name" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header> AUTHOR </mat-header-cell>
+      <mat-cell [ngClass.xs]="{'responsive-mat-cell': true}" *matCellDef="let element">
+        <span *ngIf="isMobileActive"    class="responsive-mat-col-header">AUTHOR:</span>
+             {{element.author_Name}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> PRICE </mat-header-cell>
+      <mat-cell [ngClass.xs]="{'responsive-mat-cell': true}" *matCellDef="let element">
+        <span *ngIf="isMobileActive"    class="responsive-mat-col-header">PRICE:</span>
+        {{ element.price }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> CATEGORY </mat-header-cell>
+      <mat-cell [ngClass.xs]="{'responsive-mat-cell': true}" *matCellDef="let element">
+        <span *ngIf="isMobileActive"     class="responsive-mat-col-header">CATEGORY:</span>
+        {{ element.category }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="img_Source">
+      <mat-header-cell *matHeaderCellDef> IMAGE </mat-header-cell>
+      <mat-cell [ngClass.xs]="{'responsive-mat-cell': true}" *matCellDef="let element">
+        <span *ngIf="isMobileActive"   class="responsive-mat-col-header">IMAGE:</span>
+        <img
+          [src]="element.img_Source"
+          alt="not found"
+          width="40px"
+        />
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> DESCRIPTION </mat-header-cell>
+      <mat-cell [ngClass.xs]="{'responsive-mat-cell': true}" *matCellDef="let element">
+        <span *ngIf="isMobileActive"     class="responsive-mat-col-header">DESCRIPTION:</span>
+         {{ element.description }} 
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="star">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell [ngClass.xs]="{'responsive-mat-cell': true}" *matCellDef="let element">
+
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+          [matTooltip]="'Manage Book'"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onDelete(element.id)">
+            <mat-icon>delete</mat-icon>
+            <span> Delete</span>
+          </button>
+
+          <button mat-menu-item (click)="onEdit(element.id)">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+        </mat-menu>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row [fxHide.xs]="true" *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row fxLayout.xs="column" fxLayoutAlign.xs="start"  
+            *matRowDef="let row; columns: displayedColumns" 
+            [ngClass.xs]="{'responsive-mat-row': true }"
+            ></mat-row>
+  </mat-table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10,20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
+
+<br />
+<br /> 
+

@@ -1,0 +1,8 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+@import url('https://unpkg.com/bootstrap@4.1.1/dist/css/bootstrap.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/*html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*/

@@ -1,0 +1,43 @@
+mat-card.update-profile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+
+  padding:10px;
+  /* border:1px solid lightgray;  */
+  width: 85%;
+}
+  
+
+.form-container{
+    width:90%;
+    margin: auto;
+
+    padding:10px;
+
+}
+.example-container {
+display: flex;
+flex-direction: column;
+}
+
+.example-container > * {
+width: 100%;
+}
+
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .gender-radio-button {
+    margin: 5px;
+  }
+    mat-spinner{
+      margin: auto; 
+    }

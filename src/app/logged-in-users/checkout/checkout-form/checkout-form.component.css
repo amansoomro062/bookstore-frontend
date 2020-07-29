@@ -1,0 +1,22 @@
+.main-container {
+    /* display: flex;
+    flex-direction: column; */
+    border:1px solid gainsboro;
+    padding: 10px; 
+  }
+  /* table{
+    widows: 100%;
+  }
+  */
+  /* this will direct all direct childreen of main-container class */
+  .main-container > * {
+    width: 100%;
+  }
+
+  form > * {
+    width: 100%;
+  }
+
+  /* input.ng-invalid{
+    border: 2px solid salmon;
+  } */

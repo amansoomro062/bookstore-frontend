@@ -1,0 +1,231 @@
+
+
+
+
+
+<mat-card class='update-profile'>
+  
+  <form #profileForm="ngForm" >
+  
+    <mat-card-header>
+          <mat-card-title>{{userProfile.firstname}}'s Profile</mat-card-title>
+      </mat-card-header>
+  
+  <mat-card-content>
+    <div class="form-container">
+         <div class="example-container">
+       
+          <mat-form-field>
+              <input matInput placeholder="Input" placeholder="Email" 
+                    [(ngModel)]='userProfile.username' name="username" [disabled]='!profileEditable'
+                    #username="ngModel"
+                 pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$' 
+                    required
+                    (ngModelChange)="validateEmail()"
+                      >
+  
+                  <mat-error  *ngIf="username.errors?.required" >
+                    email is required
+                  </mat-error>
+  
+                  <mat-error  *ngIf="username.errors?.pattern" >
+                    invalid email formet
+                  </mat-error>
+                 
+    <mat-error *ngIf="!username.valid && !username.errors?.pattern && !username.errors?.required">
+                    email is already taken
+                </mat-error>
+  
+          
+  
+          </mat-form-field>
+          
+          
+          <mat-form-field>
+              <input matInput placeholder="Input" placeholder="Firstname" 
+                    [(ngModel)]='userProfile.firstname' name="firstname" [disabled]='!profileEditable'
+  
+                    #firstname="ngModel"
+                    >
+  
+          </mat-form-field>
+  
+          
+          <mat-form-field>
+              <input matInput placeholder="Input" placeholder="Lastname" 
+                    [(ngModel)]='userProfile.lastname' name="lastname" [disabled]='!profileEditable'
+                    #lastname="ngModel"
+                    >
+            </mat-form-field>
+  
+          <mat-radio-group color='primary'
+            aria-labelledby="gender-radio-group-label"
+            class="gender-radio-group"
+            [(ngModel)]="userProfile.gender" [disabled]='!profileEditable' name='gender'>
+            <mat-radio-button class="gender-radio-button" *ngFor="let gender of genders" [value]="gender">
+              {{gender}}
+            </mat-radio-button>
+          </mat-radio-group>
+  
+  
+          <mat-form-field>
+              <textarea matInput placeholder="Input" placeholder="Address" type="textarea"
+                      [(ngModel)]='userProfile.address' name="address" [disabled]='!profileEditable'
+                      #address="ngModel"
+                      > </textarea>
+            </mat-form-field>
+  
+            <mat-spinner *ngIf="showSpinner"></mat-spinner>
+        
+  
+           </div>
+           <mat-divider></mat-divider>
+  
+          </div>  
+        </mat-card-content>
+  
+      <mat-card-actions style="text-align: center;">
+          
+        <button mat-raised-button color='primary' (click)='updateUserProfile()'   
+            *ngIf="profileEditable" 
+            matTooltip="Update your profile"
+            >
+             Update
+          </button> 
+  
+          <button mat-raised-button color='primary'
+           (click)='resetForm();' 
+          matTooltip="cancel"
+          *ngIf="profileEditable"
+          >
+              cancel
+          </button> 
+  
+  
+          <button mat-raised-button color='primary' (click)='profileEditable=true' 
+          matTooltip="Edit your profile"
+          *ngIf="!profileEditable"
+          >
+              Edit
+          </button> 
+  
+           </mat-card-actions>
+      
+          </form>
+  
+        </mat-card>
+
+<!-- 
+<mat-card class='update-profile'>
+  
+<form #profileForm="ngForm" >
+
+  <mat-card-header>
+        <mat-card-title>{{userProfile.firstName}}'s Profile</mat-card-title>
+        <mat-card-subtitle>{{userProfile.username}}</mat-card-subtitle>
+    </mat-card-header>
+
+<mat-card-content>
+  <div class="form-container">
+       <div class="example-container">
+     
+        <mat-form-field>
+            <input matInput placeholder="Input" placeholder="Email" 
+                  [(ngModel)]='userProfile.username' name="username" [disabled]='!profileEditable'
+                  #username="ngModel"
+               pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$' 
+                  required
+                  (ngModelChange)="validateEmail()"
+                    >
+
+                <mat-error  *ngIf="username.errors?.required" >
+                  email is required
+                </mat-error>
+
+                <mat-error  *ngIf="username.errors?.pattern" >
+                  invalid email formet
+                </mat-error>
+               
+  <mat-error *ngIf="!username.valid && !username.errors?.pattern && !username.errors?.required">
+                  email is already taken
+              </mat-error>
+
+        
+
+        </mat-form-field>
+        
+        
+        <mat-form-field>
+            <input matInput placeholder="Input" placeholder="Firstname" 
+                  [(ngModel)]='userProfile.firstname' name="firstname" [disabled]='!profileEditable'
+
+                  #firstname="ngModel"
+                  >
+
+        </mat-form-field>
+
+        
+        <mat-form-field>
+            <input matInput placeholder="Input" placeholder="Lastname" 
+                  [(ngModel)]='userProfile.lastname' name="lastname" [disabled]='!profileEditable'
+                  #lastname="ngModel"
+                  >
+          </mat-form-field>
+
+        <mat-radio-group color='primary'
+          aria-labelledby="gender-radio-group-label"
+          class="gender-radio-group"
+          [(ngModel)]="userProfile.gender" [disabled]='!profileEditable' name='gender'>
+          <mat-radio-button class="gender-radio-button" *ngFor="let gender of genders" [value]="gender">
+            {{gender}}
+          </mat-radio-button>
+        </mat-radio-group>
+
+
+        <mat-form-field>
+            <textarea matInput placeholder="Input" placeholder="Address" type="textarea"
+                    [(ngModel)]='userProfile.address' name="address" [disabled]='!profileEditable'
+                    #address="ngModel"
+                    > </textarea>
+          </mat-form-field>
+
+          <mat-spinner *ngIf="showSpinner"></mat-spinner>
+      
+
+         </div>
+         <mat-divider></mat-divider>
+
+        </div>  
+      </mat-card-content>
+
+    <mat-card-actions style="text-align: center;">
+        
+      <button mat-raised-button color='primary' (click)='updateUserProfile()'   
+          *ngIf="profileEditable" 
+          matTooltip="Update your profile"
+          [disabled]='!profileForm.form.valid || !profileForm.form.dirty'
+          >
+           Update
+        </button> 
+
+        <button mat-raised-button color='primary'
+         (click)='resetForm();' 
+        matTooltip="cancel"
+        *ngIf="profileEditable"
+        >
+            cancel
+        </button> 
+
+
+        <button mat-raised-button color='primary' (click)='profileEditable=true' 
+        matTooltip="Edit your profile"
+        *ngIf="!profileEditable"
+        >
+            Edit
+        </button> 
+
+         </mat-card-actions>
+    
+        </form>
+
+      </mat-card> -->

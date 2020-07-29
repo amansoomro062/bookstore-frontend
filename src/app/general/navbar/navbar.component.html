@@ -1,0 +1,218 @@
+
+
+<div>
+  <span class="title" style="margin-left:20px;">
+    Universal Book Store
+  </span>
+
+
+  <span class="menu-bar" *ngIf="basicAuthenticationService.isUserLogedIn(); else login">
+      <mat-menu #appMenu="matMenu">
+
+        <button mat-menu-item
+          routerLink="profile"
+          *ngIf="basicAuthenticationService.isUserLogedIn()">
+          Profile
+      </button>
+
+      <button mat-menu-item
+      routerLink="/orders"
+      *ngIf="basicAuthenticationService.isUserLogedIn()">
+      Orders
+    </button>
+
+      <button mat-menu-item
+      routerLink="/admin/products"
+      *ngIf="basicAuthenticationService.isUserLogedIn()">
+      Products
+    </button>
+
+    <button mat-menu-item
+    routerLink="/admin/users"
+    *ngIf="basicAuthenticationService.isUserLogedIn()">
+    Users
+  </button>
+
+
+      <button mat-menu-item
+      (click)="logOut()"
+      routerLink="/Logout"
+      *ngIf="basicAuthenticationService.isUserLogedIn()">
+      Logout
+    </button>
+
+      </mat-menu>
+
+      <button mat-icon-button [matMenuTriggerFor]="appMenu" >
+        <mat-icon>account_circle</mat-icon>
+
+      </button>
+  </span>
+
+  <ng-template #login>
+    <a class="menu-bar-login"
+      routerLink="login"
+      *ngIf="!basicAuthenticationService.isUserLogedIn()">
+      Login
+    </a>
+  </ng-template>
+
+
+
+  <!-- <button mat-icon-button [matMenuTriggerFor]="rootMenu" title="setting menu">
+              <mat-icon>more_vert</mat-icon>
+       </button>  -->
+
+  <a mat-icon-button class="cart-button" routerLink="/cart">
+    <mat-icon class="cart-icon">
+      local_grocery_store
+      <span
+        [matBadge]="cartItems"
+        matBadgeSize="small"
+        matBadgeColor="accent"
+        [matBadgeHidden]="cartItems === 0"
+        matBadgePosition="above after"
+      >
+      </span>
+    </mat-icon>
+  </a>
+
+  <a
+    mat-icon-button class="cart-button"
+     routerLink=""
+     class="home-icon">
+    <mat-icon class="cart-icon">
+      home
+    </mat-icon>
+  </a>
+
+
+
+  <!-- <button routerLink="cart" *ngIf="cartItems;else no_item_in_cart">
+              <mat-icon matBadge="{{cartItems}}"
+                        matBadgeColor="accent"
+                        matBadgePosition="above after"
+                        >shopping_cart
+              </mat-icon>
+          </button>
+
+          <ng-template #no_item_in_cart>
+            <a routerLink="cart">
+              <mat-icon>
+                        shopping_cart
+              </mat-icon>
+          </a>
+        </ng-template> -->
+</div>
+
+<!-- <button mat-stroked-button (click)="sidenavbar.open()">
+          open
+      </button>
+
+      <button mat-stroked-button (click)="sidenavbar.close()">
+          close
+      </button>
+
+      <button mat-button (click)="sidenavbar.toggle()" >
+        toggle
+      </button> -->
+
+<!-- <router-outlet></router-outlet> -->
+
+<!-- <app-hero-form></app-hero-form> -->
+<router-outlet></router-outlet>
+
+<!--
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" routerLink="">Universal Store</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li
+        class="nav-item active"
+        *ngIf="basicAuthenticationService.isUserLogedIn()"
+      >
+
+    <a routerLink="cart" *ngIf="cartItems;else no_item_in_cart">
+        <mat-icon matBadge="{{cartItems}}"
+                   matBadgeColor="accent"
+                   matBadgePosition="above after"
+                   >shopping_cart
+        </mat-icon>
+    </a>
+
+    <ng-template #no_item_in_cart>
+      <a routerLink="cart">
+        <mat-icon>
+                  shopping_cart
+        </mat-icon>
+    </a>
+  </ng-template>
+
+
+
+
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto ">
+      <li class="nav-item">
+        <a
+          routerLink="login"
+          *ngIf="!basicAuthenticationService.isUserLogedIn()"
+        >
+          Login
+        </a>
+
+        <a
+        routerLink="cart"
+        *ngIf="basicAuthenticationService.isUserLogedIn()">
+        Cart
+      </a>
+
+
+        <a
+          routerLink="profile"
+          *ngIf="basicAuthenticationService.isUserLogedIn()">
+          Profile
+        </a>
+
+        <a
+        routerLink="/admin/products"
+        *ngIf="basicAuthenticationService.isUserLogedIn()"
+      >
+        Products
+      </a>
+
+      <a
+      routerLink="/admin/users"
+      *ngIf="basicAuthenticationService.isUserLogedIn()" >
+      Users
+    </a>
+
+
+
+        <a
+          (click)="logOut()"
+          routerLink="logout"
+          *ngIf="basicAuthenticationService.isUserLogedIn()"
+        >
+          Logout
+        </a>
+
+
+      </li>
+    </ul>
+  </div>
+</nav> -->

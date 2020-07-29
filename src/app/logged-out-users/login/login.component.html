@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="example-container">
+
+    Username
+    <mat-form-field>
+      <input matInput placeholder="Email" [(ngModel)]="username" />
+    </mat-form-field>
+    Password
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Password"
+        [(ngModel)]="password"
+        type="password"
+      />
+    </mat-form-field>
+  </div>
+
+  <p style="color:red" *ngIf="showError">Invalid Credientials</p>
+  <div class="row">
+    <div class="col-md-12">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="loginUser()" 
+        [ngClass]="{'login-dialog':customeDialog.isDialogOpened}"
+        >
+        Login
+      </button>
+
+      <button
+      mat-flat-button
+      color="warn"
+      (click)="signUp()"      
+      *ngIf="!customeDialog.isDialogOpened"
+      >
+      Sign Up
+    </button>
+    </div>
+
+
+</div>
+</div>
+
+

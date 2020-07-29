@@ -1,0 +1,13 @@
+[1220/055452.083:ERROR:process_info.cc(359)] UncheckedAllocate
+[1220/072314.195:ERROR:process_info.cc(359)] UncheckedAllocate
+[0108/213844.751:ERROR:process_info.cc(359)] UncheckedAllocate
+[0108/213850.314:ERROR:process_info.cc(359)] UncheckedAllocate
+[0117/153215.104:ERROR:process_info.cc(359)] UncheckedAllocate
+[0117/153215.104:ERROR:process_info.cc(359)] UncheckedAllocate
+[0117/153340.859:ERROR:process_info.cc(359)] UncheckedAllocate
+[0117/210015.333:ERROR:process_info.cc(359)] UncheckedAllocate
+[0117/210044.258:ERROR:process_info.cc(359)] UncheckedAllocate
+[0117/210044.530:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\kaleem\AppData\Local\Google\Chrome\User Data\Crashpad\reports\f836eae4-8e3e-40b4-a6c9-bb3df9dc5a1b.dmp: The process cannot access the file because it is being used by another process. (0x20)
+[0117/210633.768:ERROR:process_info.cc(359)] UncheckedAllocate
+[0118/005642.033:ERROR:process_info.cc(359)] UncheckedAllocate
+[0118/005642.106:ERROR:process_info.cc(359)] UncheckedAllocate
